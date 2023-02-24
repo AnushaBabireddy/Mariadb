@@ -1,0 +1,22 @@
+sudo zypper up
+
+**Download MariaDB file:**
+sudo rpm --import https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+sudo zypper --gpg-auto-import-keys refresh
+sudo zypper addrepo --gpgcheck --refresh https://yum.mariadb.org/10.5/opensuse/15/x86_64 mariadb
+
+**Install mariaDB:**
+sudo zypper install MariaDB-server MariaDB-client
+
+**Check for status:**
+sudo systemctl enable --now mariadb
+systemctl status mariadb.service 
+
+sudo zypper install galera MariaDB-shared MariaDB-backup MariaDB-common
+
+**Get root password:**
+/usr/bin/mysql_secure_installation
+sudo mysql_secure_installation 
+Mysql -u root -p 
+  root - pwd
+  ROOT - 192.168.3.68 PWD
